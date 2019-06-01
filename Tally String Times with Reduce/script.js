@@ -8,4 +8,11 @@ const seconds = timeNodes
     })
     .reduce((total, vidSeconds) => total + vidSeconds);
 
-console.log(seconds);
+let secondsLeft = seconds;
+const hours = Math.floor(secondsLeft / 3600);
+secondsLeft %= 3600;
+
+const mins = Math.floor(secondsLeft / 60);
+secondsLeft %= 60;
+
+console.log(hours, mins, secondsLeft);
