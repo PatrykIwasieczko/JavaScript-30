@@ -33,12 +33,13 @@ function paintToCanvas() {
 
     return setInterval(() => {
         ctx.drawImage(video, 0, 0, width, height);
-    }, 16);
+        // take the pixels out
+        let pixels = ctx.getImageData(0, 0, width, height);
+        // mess with them
+        pixels = redEffect(pixels);
 
-    // take the pixels out
-    let pixels = ctx.getImageData(0, 0, width, height);
-    // mess with them
-    pixels = redEffect(pixels);
+        ctx.putImageData(pixels, 0, 0);
+    }, 16);
 }
 
 function takePhoto() {
