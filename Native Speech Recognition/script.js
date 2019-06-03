@@ -20,6 +20,10 @@ recognition.addEventListener("result", e => {
         words.appendChild(p);
     }
 
+    if (transcript.includes("get the weather")) {
+        console.log("get the weather");
+    }
+
     console.log(transcript);
 });
 
