@@ -33,6 +33,15 @@ function peep() {
 function startGame() {
     scoreBoard.textConent = 0;
     timeUp = false;
+    score = 0;
     peep();
     setTimeout(() => (timeUp = true), 10000);
 }
+
+function bonk(e) {
+    if (!e.isTrusted) return; // cheater!
+    score++;
+    this.parentNode.classList.remove("up");
+    scoreBoard.textContent = score;
+}
+moles.forEach(mole => mole.addEventListener("click", bonk));
