@@ -3,6 +3,7 @@ const scoreBoard = document.querySelector(".score");
 const moles = document.querySelectorAll(".mole");
 let lastHole;
 let timeUp = false;
+let score = 0;
 
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -27,4 +28,11 @@ function peep() {
         hole.classList.remove("up");
         if (!timeUp) peep();
     }, time);
+}
+
+function startGame() {
+    scoreBoard.textConent = 0;
+    timeUp = false;
+    peep();
+    setTimeout(() => (timeUp = true), 10000);
 }
