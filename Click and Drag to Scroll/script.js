@@ -20,5 +20,6 @@ slider.addEventListener("mouseup", () => {
 slider.addEventListener("mousemove", e => {
     if (!isDown) return; // stop the function from running
     const x = e.pageX - slider.offsetLeft;
-    console.log({ x, startX });
+    const walk = x - startX;
+    slider.scrollLeft = scrollLeft - walk;
 });
